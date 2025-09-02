@@ -1,10 +1,10 @@
-from QP_function import*
-from Projection_function import*
-from Projection_function2 import*
-from Projection_function3 import*
-from lemke_lcp import*
+from QP_function import *
+from Projection_function import *
+from Projection_function2 import *
+from lemke_lcp import *
 import matplotlib.pyplot as plt
-import numpy, scipy.io
+import numpy as np
+import scipy.io
 
 #system_parameters
 n = 4
