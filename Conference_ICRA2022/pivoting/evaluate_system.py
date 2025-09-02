@@ -22,8 +22,19 @@ def Evaluate_system(x,dt):
     
     A = [[1,dt,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0],[0,0,1,dt,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0],[0,0,0,0,1,dt,0,0,0,0],[0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,1,dt,0,0],[0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,1,dt],[0,0,0,0,0,0,0,0,0,1]]
     A = np.asarray(A)
-    
-    B = [[0,0,-dt*dt*cos,dt*dt*sin], [0,0,-dt*cos, dt*sin], [0,0,dt*dt*sin, dt*dt*cos],[0,0,dt*sin,dt*cos],[0,0,-dt*dt*x[6], dt*dt*x[8]], [0,0,-dt*x[6], dt*x[8]],[dt*dt,0,0,0],[dt,0,0,0],[0,dt*dt,0,0],[0,dt,0,0]]
+
+    x6 = float(x[6])
+    x8 = float(x[8])
+    B = [[0,0,-dt*dt*cos,dt*dt*sin],
+         [0,0,-dt*cos, dt*sin],
+         [0,0,dt*dt*sin, dt*dt*cos],
+         [0,0,dt*sin,dt*cos],
+         [0,0,-dt*dt*x6, dt*dt*x8],
+         [0,0,-dt*x6, dt*x8],
+         [dt*dt,0,0,0],
+         [dt,0,0,0],
+         [0,dt*dt,0,0],
+         [0,dt,0,0]]
     B = np.asarray(B)
     
     D = [[0, dt*dt*sin, -dt*dt*sin, 0, -cos*dt*dt, dt*dt*cos,0,dt*dt,-dt*dt,0],[0, dt*sin, -dt*sin, 0, -cos*dt, dt*cos,0,dt,-dt,0],   [0,dt*dt*cos,-dt*dt*cos,0,dt*dt*sin,-dt*dt*sin,0,0,0,dt*dt], [0,dt*cos,-dt*cos,0,dt*dt*sin,-dt*sin,0,0,0,dt]   ,   [0, -dt*dt*h, dt*dt*h,0,dt*dt*w,-dt*dt*w,0,-dt*dt*cos*w-dt*dt*sin*h,dt*dt*cos*w+dt*dt*sin*h,dt*dt*sin*w-h*cos*dt*dt]  , [0, -dt*h, dt*h,0,dt*w,-dt*w,0,-dt*cos*w-dt*sin*h,dt*cos*w+dt*sin*h,dt*sin*w-h*cos*dt] , [0, -dt*dt, dt*dt,0,0,0,0,0,0,0]    ,   [0, -dt, dt,0,0,0,0,0,0,0]    ,   [0,0,0,0,-dt*dt,dt*dt,0,0,0,0]   ,   [0,0,0,0,-dt,dt,0,0,0,0]]
